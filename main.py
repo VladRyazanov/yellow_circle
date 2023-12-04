@@ -1,5 +1,6 @@
-import pygame
 import random
+
+import pygame
 
 if __name__ == '__main__':
     pygame.init()
@@ -13,7 +14,8 @@ if __name__ == '__main__':
                 running = False
             if event.type == pygame.MOUSEBUTTONDOWN:
                 surface = pygame.Surface((500, 500))
-                pygame.draw.circle(surface, (255, 255, 0), (250, 250), random.randint(1, 250))
+                pygame.draw.circle(surface, (random.randrange(256), random.randrange(256), random.randrange(256),),
+                                   (250, 250), random.randint(1, 250))
                 screen.blit(surface, (0, 0))
 
         pygame.display.flip()
