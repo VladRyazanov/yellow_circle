@@ -1,21 +1,21 @@
 import pygame
+import random
 
 if __name__ == '__main__':
     pygame.init()
     size = width, height = 500, 500
     screen = pygame.display.set_mode(size)
-    has_a_circle = False
+
     running = True
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
             if event.type == pygame.MOUSEBUTTONDOWN:
-                has_a_circle = True
+                surface = pygame.Surface((500, 500))
+                pygame.draw.circle(surface, (255, 255, 0), (250, 250), random.randint(1, 250))
+                screen.blit(surface, (0, 0))
 
-        screen.fill((0, 0, 255))
-        if has_a_circle:
-            pygame.draw.circle(screen, (255, 255, 0), (250, 250), 100)
         pygame.display.flip()
 
     pygame.quit()
